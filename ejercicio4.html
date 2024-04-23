@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Pares</title>
+</head>
+<body>
+    <h1>Números Pares</h1>
+    <label for="numeros">Introduce números separados por comas:</label>
+    <input type="text" id="numeros">
+    <button onclick="mostrarPares()">Pares</button>
+    <br><br>
+    <div id="tablaOriginal"></div>
+    <div id="tablaPares"></div>
+
+    <script>
+        function mostrarPares() {
+            const numerosInput = document.getElementById("numeros").value;
+            const numerosArray = numerosInput.split(',').map(Number);
+
+            let tablaOriginalHTML = '<h2>Números Originales</h2><table border="1"><tr><th>Números</th></tr>';
+            for (let numero of numerosArray) {
+                tablaOriginalHTML += `<tr><td>${numero}</td></tr>`;
+            }
+            tablaOriginalHTML += '</table>';
+            document.getElementById("tablaOriginal").innerHTML = tablaOriginalHTML;
+
+            const numerosPares = numerosArray.filter(numero => numero % 2 === 0);
+
+            let tablaParesHTML = '<h2>Números Pares</h2><table border="1"><tr><th>Números Pares</th></tr>';
+            for (let numero of numerosPares) {
+                tablaParesHTML += `<tr><td>${numero}</td></tr>`;
+            }
+            tablaParesHTML += '</table>';
+            document.getElementById("tablaPares").innerHTML = tablaParesHTML;
+        }
+    </script>
+</body>
+</html>
