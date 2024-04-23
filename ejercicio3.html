@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones con Array</title>
+</head>
+<body>
+    <h1>Operaciones con Array</h1>
+    <button onclick="agregarElemento()">Agregar Elemento</button>
+    <button onclick="eliminarUltimoElemento()">Eliminar Último Elemento</button>
+    <p id="contenidoArray"></p>
+
+    <script>
+        let miArray = []; // Inicializar un array vacío
+
+        function mostrarContenidoArray() {
+            // Mostrar el contenido del array en el párrafo con id "contenidoArray"
+            document.getElementById("contenidoArray").textContent = "Contenido del Array: " + miArray.join(", ");
+        }
+
+        function agregarElemento() {
+            // Pedir al usuario que ingrese un elemento
+            const nuevoElemento = prompt("Ingrese un nuevo elemento:");
+
+            // Si el usuario ingresó algo y no canceló
+            if (nuevoElemento !== null && nuevoElemento !== "") {
+                // Agregar el nuevo elemento al final del array
+                miArray.push(nuevoElemento);
+
+                // Mostrar el contenido actualizado del array
+                mostrarContenidoArray();
+            }
+        }
+
+        function eliminarUltimoElemento() {
+            // Verificar si el array tiene elementos para eliminar
+            if (miArray.length > 0) {
+                // Eliminar el último elemento del array
+                miArray.pop();
+
+                // Mostrar el contenido actualizado del array
+                mostrarContenidoArray();
+            } else {
+                alert("El array está vacío. No hay elementos para eliminar.");
+            }
+        }
+    </script>
+</body>
+</html>
