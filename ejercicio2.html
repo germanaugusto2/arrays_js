@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concatenar Cadenas</title>
+</head>
+<body>
+    <h1>Concatenar Cadenas</h1>
+    <label for="cadena1">Cadena 1:</label>
+    <input type="text" id="cadena1">
+    <label for="cadena2">Cadena 2:</label>
+    <input type="text" id="cadena2">
+    <button onclick="concatenarCadenas()">Concatenar y Mostrar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function concatenarCadenas() {
+            const cadena1 = document.getElementById("cadena1").value;
+            const cadena2 = document.getElementById("cadena2").value;
+
+            const array1 = cadena1.split(',');
+            const array2 = cadena2.split(',');
+
+            const resultado = array1.concat(array2).join(',');
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>
+

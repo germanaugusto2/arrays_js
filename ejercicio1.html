@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones con Números</title>
+</head>
+<body>
+    <h1>Operaciones con Números</h1>
+    <label for="numeros">Lista de números (separados por coma):</label>
+    <input type="text" id="numeros">
+    <button onclick="calcularOperaciones()">Calcular</button>
+    <p id="resultado"></p>
 
+    <script>
+        function calcularOperaciones() {
+            const numerosStr = document.getElementById("numeros").value;
+
+            const numeros = numerosStr.split(',').map(Number);
+
+            const suma = numeros.reduce((acc, curr) => acc + curr, 0);
+
+            const maximo = Math.max(...numeros);
+            const minimo = Math.min(...numeros);
+
+            const media = suma / numeros.length;
+
+            const resultado = `Suma: ${suma}, Mayor: ${maximo}, Menor: ${minimo}, Media: ${media.toFixed(2)}`;
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>
